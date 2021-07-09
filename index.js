@@ -6,9 +6,11 @@ const Employee = require('./lib/Employee');
 const Intern = require('./lib/intern');
 const Engineer = require('./lib/engineer');
 
+// Create an array to put employees into
+const employeesArr = [];
+
 // Define a funciton that starts the app
 const  init = async () => {
-    const employeesArr = [];
     console.log('Welcome to the Team Profile Generator!\nLet\'s get started by creating the manager position.')
     const manager = new Manager();
     await manager.build();
@@ -16,11 +18,11 @@ const  init = async () => {
 }
 
 // Define a function that starts the menu
-// const menuStart = async () => {
-//     await inquirer.prompt({
-
-//     });
-// }
+const menuStart = async () => {
+    console.log('menu start');
+    // await inquirer.prompt({
+    // });
+}
 
 // Start the app
 init();
