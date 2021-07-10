@@ -1,13 +1,35 @@
 // Require dependencies
 const inquirer = require('inquirer');
-const fileSystem = require('fs');
+const cheerio = require('cheerio');
+const fs = require('fs');
 const Manager = require('./lib/Manager');
-// const Employee = require('./lib/Employee');
 const Intern = require('./lib/intern');
 const Engineer = require('./lib/engineer');
 
 // Create an array to put employees into
-const teamArr = [];
+const teamArr = [
+    {
+        name: 'Bildo',
+        role: 'Engineer',
+        email: 'hobbit@lotr.com',
+        id: 4,
+        github: 'bilbobobobo',
+    },
+    {
+        name: 'gandalf',
+        role: 'Manager',
+        email: 'wizard@lotr.com',
+        id: 7,
+        office: '67', 
+    },
+    {
+        name: 'Gollum',
+        role: 'Intern',
+        email: 'puke@lotr.com',
+        id: 12,
+        school: 'tasty hobbitses',
+    }
+];
 
 // Define a funciton that starts the app
 const  init = async () => {
@@ -52,12 +74,57 @@ const menuStart = async () => {
             menuStart();
             break;
         case '3':
-            console.log('Writing your HTML...');
+            writeHTML();
             break;
         default:
             break;
     }
 }
 
+// Function that writes the html file
+const writeHTML = () => {
+    console.log('Writing your HTML...');
+
+    // Copy the template HTML into a variable
+    const template = fs.readFileSync('./src/template.html', {encoding: 'utf8', flag: 'r'});
+
+    // Load the template into cheerio
+    const $ = cheerio.load(template);
+    // Cut out the default card into its own variable
+    const card = cheerio.load($('#cards').html(), null, false);
+    // Remove the default card
+    $('#cards').empty();
+
+    // Loop through the team array to create and append cards for each
+    teamArr.forEach(employee => {
+
+        // Replace generic areas
+        card('#name').text(employee.name);
+        card('#role').text(employee.role);
+        card('#id').text(`ID: ${employee.id}`);
+        card('#email').text(employee.email).attr('href', `mailto:${employee.email}`);
+
+        // If statement determines the wildcard slot
+        if(employee.office) {
+            card('#wildcard').text(`Office number: ${employee.office}`);
+        } else if(employee.github) {
+            card('#wildcard').append(`Github: <a href="github.com/${employee.github}" target="_blank">${employee.github}</a>`);
+        } else {
+            card('#wildcard').text(`School: ${employee.school}`);
+        }
+
+        // Append to the document
+        $('#cards').append(card.html());
+    });
+    // console.log($.html());
+
+    // Write the result to file
+    const completeHTML = $.html();
+    fs.writeFile('./dist/MyTeam.html', completeHTML, error => 
+        error ? console.log(error) : console.log('File is done! Check the dist folder for your web page.'))
+
+}
+
 // Start the app
-init();
+// init();
+writeHTML();
