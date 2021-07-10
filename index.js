@@ -7,29 +7,7 @@ const Intern = require('./lib/intern');
 const Engineer = require('./lib/engineer');
 
 // Create an array to put employees into
-const teamArr = [
-    {
-        name: 'Bildo',
-        role: 'Engineer',
-        email: 'hobbit@lotr.com',
-        id: 4,
-        github: 'bilbobobobo',
-    },
-    {
-        name: 'gandalf',
-        role: 'Manager',
-        email: 'wizard@lotr.com',
-        id: 7,
-        office: '67', 
-    },
-    {
-        name: 'Gollum',
-        role: 'Intern',
-        email: 'puke@lotr.com',
-        id: 12,
-        school: 'tasty hobbitses',
-    }
-];
+const teamArr = [];
 
 // Define a funciton that starts the app
 const  init = async () => {
@@ -105,10 +83,11 @@ const writeHTML = () => {
         card('#email').text(employee.email).attr('href', `mailto:${employee.email}`);
 
         // If statement determines the wildcard slot
+        card('#wildcard').empty();
         if(employee.office) {
             card('#wildcard').text(`Office number: ${employee.office}`);
         } else if(employee.github) {
-            card('#wildcard').append(`Github: <a href="github.com/${employee.github}" target="_blank">${employee.github}</a>`);
+            card('#wildcard').append(`Github: <a href="https://github.com/${employee.github}" target="_blank">${employee.github}</a>`);
         } else {
             card('#wildcard').text(`School: ${employee.school}`);
         }
@@ -116,15 +95,13 @@ const writeHTML = () => {
         // Append to the document
         $('#cards').append(card.html());
     });
-    // console.log($.html());
 
     // Write the result to file
     const completeHTML = $.html();
     fs.writeFile('./dist/MyTeam.html', completeHTML, error => 
-        error ? console.log(error) : console.log('File is done! Check the dist folder for your web page.'))
+        error ? console.log(error) : console.log('File is done! Check the "dist" folder for your web page.'))
 
 }
 
 // Start the app
-// init();
-writeHTML();
+init();
