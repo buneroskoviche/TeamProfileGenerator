@@ -1,0 +1,15 @@
+#header {
+    height: 20vh;
+}
+
+#cards {
+    min-height: 80vh;
+    background-color: lightgray;
+}
+
+.card {
+    margin: 2%;
+    width: 300px;
+    height: auto;
+    border: none;
+}

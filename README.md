@@ -28,4 +28,4 @@ Have questions? Feel free to contact me through my [GithHub profile](https://git
 ## Useful links
 Tutorial video [here](https://youtu.be/7YroCBRieyw).
 
-[Sample HTML]()
+[Sample HTML](https://buneroskoviche.github.io/TeamProfileGenerator/)
