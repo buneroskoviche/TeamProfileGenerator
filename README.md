@@ -1,5 +1,6 @@
 # Team Profile Generator
-
+![screenshot1](https://user-images.githubusercontent.com/80650523/125180611-2f147000-e1b9-11eb-90e5-768eb3447058.PNG)
+![screenshot2](https://user-images.githubusercontent.com/80650523/125180614-320f6080-e1b9-11eb-814e-3af13b63735a.PNG)
 
 ## Table of Contents
 * [Description](#description)
