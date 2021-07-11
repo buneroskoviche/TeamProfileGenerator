@@ -2,7 +2,6 @@ const Employee = require('../lib/Employee');
 const Engineer = require('../lib/Engineer.js');
 const Manager = require('../lib/Manager');
 const Intern = require('../lib/Intern');
-const inquirer = require('inquirer');
 
 
 describe("Employee", () =>{
@@ -59,7 +58,7 @@ describe("Manager", () =>{
     });
 
     describe("Office", () => {
-        it('should create a "Github" parameter for the engineer obj', async () => {
+        it('should create a "Office number" parameter for the manager obj', async () => {
             const manager = new Manager();
 
             await manager.getOffice();
@@ -79,7 +78,7 @@ describe("Intern", () =>{
     });
 
     describe("School", () => {
-        it('should create a "Github" parameter for the engineer obj', async () => {
+        it('should create a "school" parameter for the intern obj', async () => {
             const intern = new Intern();
 
             await intern.getSchool();
