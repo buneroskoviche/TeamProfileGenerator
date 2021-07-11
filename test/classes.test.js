@@ -14,6 +14,18 @@ describe("Employee", () =>{
         });
     });
 
+    describe("Build Functions", () => {
+        it('should create parameters for each build function', async () => {
+            const employee = new Employee();
+
+            await employee.build();
+
+            expect(employee.email).toBeDefined();
+            expect(employee.name).toBeDefined();
+            expect(employee.id).toBeDefined();
+        });
+    });
+
 });
 
 describe("Engineer", () =>{
@@ -22,6 +34,16 @@ describe("Engineer", () =>{
             const engi = new Engineer();
 
             expect(engi.role).toEqual('Engineer');
+        });
+    });
+
+    describe("Github", () => {
+        it('should create a "Github" parameter for the engineer obj', async () => {
+            const engi = new Engineer();
+
+            await engi.getGithub();
+
+            expect(engi.github).toBeDefined();
         });
     });
 
@@ -35,6 +57,16 @@ describe("Manager", () =>{
             expect(manager.role).toEqual('Manager');
         });
     });
+
+    describe("Office", () => {
+        it('should create a "Github" parameter for the engineer obj', async () => {
+            const manager = new Manager();
+
+            await manager.getOffice();
+
+            expect(manager.office).toBeDefined();
+        });
+    });
 });
 
 describe("Intern", () =>{
@@ -43,6 +75,16 @@ describe("Intern", () =>{
             const intern = new Intern();
 
             expect(intern.role).toEqual('Intern');
+        });
+    });
+
+    describe("School", () => {
+        it('should create a "Github" parameter for the engineer obj', async () => {
+            const intern = new Intern();
+
+            await intern.getSchool();
+
+            expect(intern.school).toBeDefined();
         });
     });
 });
