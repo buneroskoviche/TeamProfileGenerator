@@ -1,8 +1,20 @@
+const Employee = require('../lib/Employee');
 const Engineer = require('../lib/Engineer.js');
 const Manager = require('../lib/Manager');
 const Intern = require('../lib/Intern');
 const inquirer = require('inquirer');
 
+
+describe("Employee", () =>{
+    describe("Initialization", () => {
+        it('should create an Employee object with the "role" parameter "Employee"', () => {
+            const employee = new Employee();
+
+            expect(employee.role).toEqual('Employee');
+        });
+    });
+
+});
 
 describe("Engineer", () =>{
     describe("Initialization", () => {
