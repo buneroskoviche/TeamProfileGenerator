@@ -8,7 +8,7 @@
 * [Usage](#usage)
 * [Tests](#tests)
 * [Questions](#questions)
-* [License](#license)
+* [Links](#links)
 
 ## Description
 A text based application that dynamically generates a web page. The page allows quick access to team member data, such as email and Github profile links.
@@ -25,4 +25,7 @@ A suite of test scripts are included. Use the "npm run test" command to use them
 ## Questions
 Have questions? Feel free to contact me through my [GithHub profile](https://github.com/buneroskoviche).
 
+## Useful links
+Tutorial video [here](https://youtu.be/7YroCBRieyw).
 
+[Sample HTML]()
