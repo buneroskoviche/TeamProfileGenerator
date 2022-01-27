@@ -23,9 +23,9 @@ In a command line, navigate to the folder and run "node index.js". Answer the qu
 A suite of test scripts are included. Use the "npm run test" command to use them. Feel free to add or tweak any of the tests.
 
 ## Questions
-Have questions? Feel free to contact me through my [GithHub profile](https://github.com/buneroskoviche).
+Have questions? Feel free to contact me through my [GithHub profile](https://github.com/dk-code93).
 
 ## Useful links
 Tutorial video [here](https://youtu.be/7YroCBRieyw).
 
-[Sample HTML](https://buneroskoviche.github.io/TeamProfileGenerator/)
+[Sample HTML](https://dk-code93.github.io/TeamProfileGenerator/)
